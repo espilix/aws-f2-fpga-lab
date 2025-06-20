@@ -328,8 +328,8 @@ always @(posedge clk_main_a0)
           end
           else if (rd_addr >= 8'h20 && rd_addr <= 8'h3C) begin
             // Output registers
-            cl_ocl_rdata <= output_regs[rd_addr[4:2] - 3'h0]; // Subtract offset for 0x20 base
-            $display("[%t] READ: Output reg[%0d] = 0x%08x", $realtime, rd_addr[4:2], output_regs[rd_addr[4:2]]);
+              cl_ocl_rdata <= output_regs[rd_addr[4:2] - 3'd8]; // Subtract offset for 0x20 base
+              $display("[%t] READ: Output reg[%0d] = 0x%08x", $realtime, rd_addr[4:2], output_regs[rd_addr[4:2] - 3'd8]);
           end
           else if (rd_addr == 8'h40) begin
             // Control register
